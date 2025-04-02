@@ -9,7 +9,9 @@ namespace L02_2022LM653_2022BB650.Models
         [Key]
         public int id { get; set; }
 
+
         [ForeignKey("clientes")]
+        [Column("id_cliente")]
         public int id_cliente { get; set; }
         public clientes cliente { get; set; } 
 

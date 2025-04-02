@@ -27,20 +27,20 @@ namespace L02_2022LM653_2022BB650.Controllers
                 _context.clientes.Add(cliente);
                 _context.SaveChanges(); // Guardamos primero para obtener el ID
 
-                // Crear un pedido con estado "P" (Proceso)
-                var pedido = new pedidoEncabezado
-                {
-                    id_cliente = cliente.id,  // Relacionamos con el cliente creado
-                    cantidad_libros = 0,      // Se asignará luego
-                    total = 0,                // Se asignará luego
-                    estado = "P"
-                };
+                //// Crear un pedido con estado "P" (Proceso)
+                //var pedido = new pedidoEncabezado
+                //{
+                //    id_cliente = 1,  // Relacionamos con el cliente creado
+                //    cantidad_libros = 0,      // Se asignará luego
+                //    total = 0,                // Se asignará luego
+                //    estado = "P"
+                //};
 
-                _context.pedido_encabezado.Add(pedido);
-                _context.SaveChanges();
+                //_context.pedido_encabezado.Add(pedido);
+                //_context.SaveChanges();
 
                 // Redirigir a la vista del listado de libros
-                return RedirectToAction("ListadoLibros", "Libros");
+                return RedirectToAction("Index", "Libros");
             }
 
             return View(cliente);

@@ -1,0 +1,53 @@
+﻿@model List<L02_2022LM653_2022BB650.Models.libros>
+
+@{
+    ViewData["Title"] = "Venta de Libros";
+}
+
+<link rel="stylesheet" href="~/css/style.css" asp-append-version="true"   />
+
+
+<div class="text-center bg-dark text-white py-3">
+    <img src="/img/logo1.png" alt="Logo" width="100">
+    <h2>Venta de Libros</h2>
+    <p>Seleccione los libros y posterior y posterior ingrese sus datos</p>
+</div>
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Seleccione sus Libros</h4>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var libro in Model)
+                    {
+                        <tr>
+                            <td>@libro.nombre</td>
+                            <td>$@libro.precio</td>
+                            <td>
+                                <form asp-action="AgregarAlCarrito" asp-controller="Libros" method="post">
+                                    <input type="hidden" name="id_libro" value="@libro.id" />
+                                    <input type="hidden" name="id_pedido" value="1" />
+                                    <button type="submit" class="btn btn-success">+ Agregar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="text-center mt-3">
+                <a href="@Url.Action("CompletarPedido", "Pedidos")" class="btn btn-primary">Completar</a>
+            </div>
+        </div>
+    </div>
+</div>

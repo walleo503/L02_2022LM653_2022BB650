@@ -8,5 +8,10 @@ namespace L02_2022LM653_2022BB650.Controllers
         {
             return View();
         }
+
+        public IActionResult Cierre()
+        {
+            return View();
+        }
     }
 }

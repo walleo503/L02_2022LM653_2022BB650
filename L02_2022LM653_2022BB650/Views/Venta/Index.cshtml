@@ -4,7 +4,15 @@
     ViewData["Title"] = "Inicio de Venta";
 }
 
-<h2 class="text-center">Venta de Libros</h2>
+<link rel="stylesheet" href="~/css/style.css" asp-append-version="true"   />
+
+
+@* <h2 class="text-center">Venta de Libros</h2> *@
+
+<div class="text-center bg-dark text-white py-3">
+    <img src="/img/logo1.png" alt="Logo" width="100">
+    <h2>Venta de Libros</h2>
+</div>
 
 <div class="container">
     <div class="card">
@@ -14,35 +22,30 @@
 
             @using (Html.BeginForm("IniciarVenta", "Clientes", FormMethod.Post))
             {
-                <div class="form-group row mb-3">
-                    <div class="col-sm-2">
-                        @Html.Label("nombre", "Nombre")
-                    </div>
-                    <div class="col-sm-4">
-                        @Html.TextBox("nombre", "", new { @class = "form-control", required = "required" })
-                    </div>
-
-                    <div class="col-sm-2">
-                        @Html.Label("apellido", "Apellido")
-                    </div>
-                    <div class="col-sm-4">
-                        @Html.TextBox("apellido", "", new { @class = "form-control", required = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group row mb-3">
-                    <div class="col-sm-2">
-                        @Html.Label("email", "Email")
-                    </div>
-                    <div class="col-sm-4">
-                        @Html.TextBox("email", "", new { @class = "form-control", type = "email", required = "required" })
+                <div class="form-group mb-3">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            @Html.Label("nombre", "Nombre")
+                            @Html.TextBox("nombre", "", new { @class = "form-control", required = "required" })
+                        </div>
+                        <div class="col-sm-6">
+                            @Html.Label("apellido", "Apellido")
+                            @Html.TextBox("apellido", "", new { @class = "form-control", required = "required" })
+                        </div>
                     </div>
 
-                    <div class="col-sm-2">
-                        @Html.Label("direccion", "Dirección")
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            @Html.Label("email", "Email")
+                            @Html.TextBox("email", "", new { @class = "form-control", type = "email", required = "required" })
+                        </div>
                     </div>
-                    <div class="col-sm-4">
-                        @Html.TextArea("direccion", "", new { @class = "form-control", placeholder = "Ingrese su dirección" })
+
+                    <div class="row">
+                        <div class="col-12">
+                            @Html.Label("direccion", "Dirección")
+                            @Html.TextBox("direccion", "", new { @class = "form-control" })
+                        </div>
                     </div>
                 </div>
 
@@ -50,11 +53,6 @@
                     <button type="submit" class="btn btn-success">Iniciar Venta</button>
                 </div>
             }
-
-            <div class="text-center bg-dark text-white py-3 mt-4">
-                <p>YYYY-DD-NN - JONATHAN ALEXIS BARRIENTOS BARRIENTOS</p>
-                <p>YYYY-DD-NN - WALTER LEONEL LINARES MARTINEZ</p>
-            </div>
         </div>
     </div>
 </div>
@@ -62,57 +60,3 @@
 
 
 
-
-
-@* 
-
-@model L02_2022LM653_2022BB650.Models.clientes;
-
-@{
-    ViewData["Title"] = "Inicio de Venta";
-}
-
-<div class="container mt-4">
-    <div class="text-center bg-dark text-white py-3">
-        <img src="/img/logo.png" alt="Logo" width="100">
-        <h2>Venta de Libros</h2>
-    </div>
-
-    <h3 class="mt-4">Proceso de venta</h3>
-    <h5>Datos del Cliente</h5>
-
-    <form asp-action="IniciarVenta" method="post">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="Nombre"></label>
-                    <input asp-for="Nombre" class="form-control" />
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="Apellido"></label>
-                    <input asp-for="Apellido" class="form-control" />
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Email"></label>
-            <input asp-for="Email" class="form-control" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Direccion"></label>
-            <input asp-for="Direccion" class="form-control" />
-        </div>
-
-        <button type="submit" class="btn btn-success btn-block">Iniciar Venta</button>
-    </form>
-
-    <div class="text-center bg-dark text-white py-3 mt-4">
-        <p>YYYY-DD-NN - JONATHAN ALEXIS BARRIENTOS BARRIENTOS</p>
-        <p>YYYY-DD-NN - WALTER LEONEL LINARES MARTINEZ</p>
-    </div>
-</div>
- *@
