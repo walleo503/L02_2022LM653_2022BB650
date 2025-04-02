@@ -8,5 +8,8 @@ namespace L02_2022LM653_2022BB650.Models
         
         }
 
+        public DbSet<clientes> clientes { get; set; }
+        public DbSet<pedidoEncabezado> pedido_encabezado { get; set; }
+
     }
 }
